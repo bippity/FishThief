@@ -15,20 +15,22 @@ import java.awt.*;
 @ScriptManifest(author = "Bippity", info = "Barbville fish script", name = "Fish Thief", version = 1.0, logo = "")
 public class main extends Script
 {
-	int deposited = 0;
-	boolean returning = true;
+	int deposited = 0; //Amount of fish deposited into bank
+	boolean returning = true; //Whether player is heading back to barbarian village fishing spot
 	private long startTime;
 	private String status;
 	
+	//An array of Positions from the Barbarian village fishing spot to the GE
 	private final Position[] bankPath = {
 			new Position(3106, 3433, 0), new Position(3116, 3433, 0), new Position(3124, 3432, 0),
 			new Position(3134, 3434, 0), new Position(3143, 3439, 0), new Position(3150, 3444, 0),
 			new Position(3158, 3451, 0), new Position(3162, 3457, 0), new Position(3164, 3465, 0),
 			new Position(3164, 3475, 0), new Position(3164, 3481, 0), new Position(3164, 3485, 0)
 	};
-	private final Position[] returnPath = reversePath(bankPath);
+	private final Position[] returnPath = reversePath(bankPath); //Reverses the path, heads back to barb village
 	
 	@Override
+	//This method runs when the script starts
 	public void onStart()
 	{
 		log("[Fishing Thief] Let's get started!");
